@@ -413,12 +413,7 @@ jobs:
         
         Write-Host "⏰ VPS session completed. Preparing restart..."
 
-    - name: 🔄 Auto Restart Workflow
-      if: always()
-      run: |
-        $lockFile = "restart.lock"
-        $currentTime = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
-        
+    
         "RESTART_$(Get-Date -Format 'yyyyMMdd_HHmmss')" | Out-File -FilePath $lockFile -Encoding UTF8
         
         Write-Host "🔁 Initiating workflow restart at $currentTime"
